@@ -1,5 +1,4 @@
-https://travis-ci.org/karlamrhein/travis-c.svg?branch=master
-
+[![Build Status](https://travis-ci.org/karlamrhein/travis-c.svg?branch=master)](https://travis-ci.org/karlamrhein/travis-c)
 
 ## Welcome to GitHub Pages
 
