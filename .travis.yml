@@ -5,5 +5,3 @@ script:
 #  - clang -coverage -O0 foo.c -o foo
 
   - curl -L https://omnitruck.chef.io/install.sh | sudo bash
-  - gcc clock.c
-  - ./a.out
