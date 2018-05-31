@@ -1,3 +1,6 @@
+https://travis-ci.org/karlamrhein/travis-c.svg?branch=master
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/karlamrhein/travis-c/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
