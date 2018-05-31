@@ -1,0 +1,8 @@
+language: c
+sudo: required
+script:
+  - clang -coverage -O0 hello.c -o hello
+  - clang -coverage -O0 foo.c -o foo
+  - ./hello
+  - ./foo
+
