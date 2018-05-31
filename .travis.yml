@@ -4,5 +4,7 @@ script:
 #  - clang -coverage -O0 hello.c -o hello
 #  - clang -coverage -O0 foo.c -o foo
 
-  - curl -L https://omnitruck.chef.io/install.sh | sudo bash
-  - curl -L http://ftp.mutt.org/pub/mutt/mutt-1.10.0.tar.gz -O
+# - curl -L https://omnitruck.chef.io/install.sh | sudo bash
+# - curl -L http://ftp.mutt.org/pub/mutt/mutt-1.10.0.tar.gz -O
+
+  - myscript.sh
