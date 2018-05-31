@@ -5,3 +5,6 @@ script:
 #  - clang -coverage -O0 foo.c -o foo
 
   - curl -L https://omnitruck.chef.io/install.sh | sudo bash
+  - curl -L ftp://ftp.mutt.org/pub/mutt/mutt-1.10.0.tar.gz -O
+  - tar zxvf mutt-1.10.0.tar.gz
+  - cd mutt-1.10.0 && configure && make && sudo make installl
