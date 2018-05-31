@@ -8,4 +8,8 @@ script:
 # - curl -L http://ftp.mutt.org/pub/mutt/mutt-1.10.0.tar.gz -O
 
 # - myscript.sh
+# - pwd
+# - /bin/ls -la
+# - ./myscript.sh
+
   - ./linux.sh
