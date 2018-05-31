@@ -5,9 +5,13 @@ script:
 #  - clang -coverage -O0 foo.c -o foo
 
   - gcc -Wall foo.c -o foo
-  - gcc -Wall foo.c -o foo
+# - gcc -Wall foo.c -o foo
 
-
+  - df -h
+  - hostname
+  - ip a
+  - whoami
+  
   - ./hello
-  - ./foo
+  # - ./foo
 
