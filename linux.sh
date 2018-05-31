@@ -27,13 +27,13 @@ trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
   #-----------------------------------------
   echo Downloading kernel tar ball
   #-----------------------------------------
-  curl -sLO $url
+  curl -LO $url
 
   #-----------------------------------------
   echo Unpacking tar ball
   #-----------------------------------------
-  tar xJf linux-4*
-  /bin/rm *tar.xz
+  tar xvJf linux-4*
+  /bin/rm -v *tar.xz
   cd linux-*
 
   #-----------------------------------------
