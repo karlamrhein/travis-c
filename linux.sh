@@ -39,9 +39,9 @@ trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
   #-----------------------------------------
   echo Running make
   #-----------------------------------------
-  make mrproper  >/dev/null
-  make defconfig >/dev/null
-  make           >/dev/null
+  make mrproper
+  make defconfig
+  make
 
   echo Ending at `date`
   cd /tmp
