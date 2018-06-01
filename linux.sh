@@ -1,4 +1,5 @@
 #!/bin/sh
+# Karl Amrhein
 
 url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz'
 
