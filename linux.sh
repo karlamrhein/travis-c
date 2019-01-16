@@ -31,3 +31,4 @@ for url in $urls; do
 
   } 2>&1 | tee $output
 
+done
