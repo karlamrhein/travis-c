@@ -15,6 +15,7 @@ for url in $urls; do
   cd $d
   echo "using $d for build."
   # remove huge temp directory upon getting killed
+  trap -l
   trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
   
   curl -LO $url
@@ -23,14 +24,15 @@ for url in $urls; do
   /bin/rm -v *tar.xz
   cd linux-*
   echo "Starting make..."
-  ( make mrproper && make defconfig) 2>&1 >> $output
+  (make mrproper && make defconfig) 2>&1 >> $output
   echo "Continuing build..."
-  ( echo make 2>&1 > $output ; sleep 30; mv $output ${output}.completed ) &
+  (make 2>&1 > $output ; mv $output ${output}.completed) &
   
   while [ -f $output ]; do
     tail $output
     sleep 5
   done
+  
   echo "Build completed.  Log file is ${output}.completed"
   tail ${output}.completed
   set -x
