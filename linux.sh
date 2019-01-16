@@ -3,14 +3,31 @@
 
 set -x
 curl icanhazip.com
-iptables -nvL
+sudo iptables -nvL
 ls -l /etc/ssh
 ls -l /etc/ssh/sshd_config
 whoami
-sudo cat /etc/ssh/sshd_config
-sudo service sshd start
-sudo useradd ksa1
-sleep 86400
+# sudo cat /etc/ssh/sshd_config
+# sudo service sshd start
+
+chkconfig --list
+
+sudo useradd -m ksa1
+pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+echo $pass | sudo passwd --stdin ksa1 
+
+ls -l /etc/sudoers.d/
+ls -l /etc/sudoers
+cat /etc/sudoers.d/travis
+cp /etc/sudoers.d/travis /etc/sudoers.d/ksa1
+sed -i -e 's/travis/ksa/g' /etc/sudoers.d/ksa1
+sudo -l -U ksa1
+
+while true; do
+  printf "."
+  sleep 60
+done
+  
 exit
 
 
