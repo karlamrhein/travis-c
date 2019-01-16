@@ -1,6 +1,18 @@
 #!/bin/sh
 # Karl Amrhein
 
+set -x
+curl icanhazip.com
+iptables -nvL
+ls -l /etc/ssh
+ls -l /etc/ssh/sshd_config
+cat /etc/ssh/sshd_config
+
+exit
+
+
+
+
 uname -a
 df -h
 curl icanhazip.com
