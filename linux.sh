@@ -10,17 +10,22 @@ whoami
 # sudo cat /etc/ssh/sshd_config
 # sudo service sshd start
 
-chkconfig --list
+sudo apt-get install lsof
+sudo apt-get install nc
+sudo chkconfig --list
 
 sudo useradd -m ksa1
-pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-echo $pass | sudo passwd --stdin ksa1 
+pass=`tr -dc 'a-z0-9' < /dev/urandom | head -c ${1:-32}`
 
-ls -l /etc/sudoers.d/
-ls -l /etc/sudoers
-cat /etc/sudoers.d/travis
-cp /etc/sudoers.d/travis /etc/sudoers.d/ksa1
-sed -i -e 's/travis/ksa/g' /etc/sudoers.d/ksa1
+/usr/bin/nc -z localhost 22
+
+echo $pass | sudo passwd ksa1 
+
+sudo ls -l /etc/sudoers.d/
+sudo ls -l /etc/sudoers
+sudo cat /etc/sudoers.d/travis
+sudo cp /etc/sudoers.d/travis /etc/sudoers.d/ksa1
+sudo sed -i -e 's/travis/ksa/g' /etc/sudoers.d/ksa1
 sudo -l -U ksa1
 
 while true; do
