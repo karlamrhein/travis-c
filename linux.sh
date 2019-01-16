@@ -4,10 +4,10 @@
 tmpdir=/tmp
 [ -d /scratch ] && tmpdir=/scratch   # use /scratch if possible
 
-# urls='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz
-#       https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
+# urls='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
 
-urls='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
+urls='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz
+      https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
 
 for url in $urls; do
   output=`mktemp --tmpdir=$tmpdir`       
@@ -22,7 +22,7 @@ for url in $urls; do
   /bin/rm -v *tar.xz
   cd linux-*
   make mrproper && make defconfig
-  ( echo make 2>&1 > $output ; sleep 60; mv $output ${output}.completed ) &
+  ( echo make 2>&1 > $output ; sleep 30; mv $output ${output}.completed ) &
   
   while [ -f $output ]; do
     tail $output
@@ -30,10 +30,8 @@ for url in $urls; do
   done
   echo "Build completed.  Log file is ${output}.completed"
   tail ${output}.completed
-  
   set -x
   cd /tmp
   /bin/rm -rf $d
-
-
+  set +x
 done
