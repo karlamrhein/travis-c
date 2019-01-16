@@ -1,7 +1,8 @@
 #!/bin/sh
 # Karl Amrhein
 
-url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz'
+# url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz'
+url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
 
 tmpdir=/tmp
 [ -d /scratch ] && tmpdir=/scratch   # use /scratch if possible
@@ -20,9 +21,9 @@ trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
   #-----------------------------------------
   # to enable newer gcc from software collections:
   #-----------------------------------------
-  if [ -x /opt/rh/devtoolset-4/enable ]; then
+  if [ -x /opt/rh/devtoolset-7/enable ]; then
     echo Enabling GCC from Developer Toolset
-    source /opt/rh/devtoolset-4/enable
+    source /opt/rh/devtoolset-7/enable
   fi
 
   #-----------------------------------------
