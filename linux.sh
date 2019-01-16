@@ -18,7 +18,8 @@ for url in $urls; do
   trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
   
   curl -LO $url
-  tar xvJf linux-4*
+  echo "Extracting tar ball..."
+  tar xJf linux-4*
   /bin/rm -v *tar.xz
   cd linux-*
   echo "Starting make..."
