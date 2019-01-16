@@ -15,8 +15,7 @@ for url in $urls; do
   cd $d
   echo "using $d for build."
   # remove huge temp directory upon getting killed
-  trap -l
-  trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGINT SIGTERM
+  trap "cd /tmp; echo Removing $d; /bin/rm -rf $d" SIGTERM
   
   curl -LO $url
   echo "Extracting tar ball..."
