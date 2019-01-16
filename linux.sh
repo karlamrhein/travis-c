@@ -1,6 +1,21 @@
 #!/bin/sh
 # Karl Amrhein
 
+uname -a
+df -h
+curl icanhazip.com
+which apt
+which yum
+echo sleeping for 5 seconds
+sleep 5
+which sshd
+ls -l /etc/
+find /etc/
+find /usr/sbin
+exit
+
+
+
 # url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.1.tar.xz'
 url='https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.2.tar.xz'
 
