@@ -6,8 +6,11 @@ curl icanhazip.com
 iptables -nvL
 ls -l /etc/ssh
 ls -l /etc/ssh/sshd_config
-cat /etc/ssh/sshd_config
-
+whoami
+sudo cat /etc/ssh/sshd_config
+sudo service sshd start
+sudo useradd ksa1
+sleep 86400
 exit
 
 
