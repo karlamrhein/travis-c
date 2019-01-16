@@ -21,7 +21,9 @@ for url in $urls; do
   tar xvJf linux-4*
   /bin/rm -v *tar.xz
   cd linux-*
-  make mrproper && make defconfig
+  echo "Starting make..."
+  ( make mrproper && make defconfig) 2>&1 >> $output
+  echo "Continuing build..."
   ( echo make 2>&1 > $output ; sleep 30; mv $output ${output}.completed ) &
   
   while [ -f $output ]; do
