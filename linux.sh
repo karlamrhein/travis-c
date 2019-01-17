@@ -28,9 +28,9 @@ for url in $urls; do
   (make 2>&1 >> $output ; mv $output ${output}.completed) &
   
   while [ -f $output ]; do
-    tail $output
+    tail -5 $output
     echo "..."
-    sleep 5
+    sleep 30
   done
   
   echo "Build completed.  Log file is ${output}.completed"
