@@ -25,10 +25,11 @@ for url in $urls; do
   echo "Starting make..."
   (make mrproper && make defconfig) 2>&1 >> $output
   echo "Continuing build..."
-  (make 2>&1 > $output ; mv $output ${output}.completed) &
+  (make 2>&1 >> $output ; mv $output ${output}.completed) &
   
   while [ -f $output ]; do
     tail $output
+    echo "..."
     sleep 5
   done
   
